@@ -195,7 +195,7 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
                 onPressed: _calculateBMI,
                 child: const Text(
                   'คำนวณ',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Colors.black),
                 ),
               ),
             ),
@@ -203,38 +203,44 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
 
             // ผลลัพธ์
             if (_bmiResult != null)
-              Card(
-                elevation: 3,
-                color: _getBMIColor(),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'ผลการคำนวณ BMI',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+              Center(
+                child: SizedBox(
+                  width: 300, // กำหนดความกว้าง
+                  height: 200, // กำหนดความสูง
+                  child: Card(
+                    elevation: 3,
+                    color: _getBMIColor(),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          const Text(
+                            'ผลการคำนวณ BMI',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            _bmiResult!.toStringAsFixed(1),
+                            style: const TextStyle(
+                              fontSize: 45,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            _bmiCategory!,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        _bmiResult!.toStringAsFixed(1),
-                        style: const TextStyle(
-                          fontSize: 48,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        _bmiCategory!,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),

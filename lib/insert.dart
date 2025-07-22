@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:heartcare_plus/home.dart';
+import 'package:heartcare_plus/insertpage/date/date_his.dart';
+import 'package:heartcare_plus/insertpage/history/treatment_history_page.dart';
+import 'package:heartcare_plus/insertpage/medicine/medicine.dart';
+import 'package:heartcare_plus/insertpage/persure/persure.dart';
 
 void main() {
   runApp(const HealthApp());
@@ -16,10 +21,10 @@ class HealthApp extends StatelessWidget {
       ),
       home: const HealthRecordPage(),
       routes: {
-        '/treatment': (context) => const TreatmentHistoryPage(),
-        '/appointment': (context) => const AppointmentPage(),
-        '/medication': (context) => const MedicationPage(),
-        '/bloodpressure': (context) => const BloodPressurePage(),
+        '/date': (context) => DateHistory(),
+        '/history': (context) => TreatmentHistoryPage(),
+        '/medicine': (context) => MedicineScreen(),
+        '/pressure': (context) => Persure(),
       },
     );
   }
@@ -32,6 +37,15 @@ class HealthRecordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+        ),
         title: const Text('บันทึกข้อมูลสุขภาพ'),
         backgroundColor: Colors.red[700],
       ),
@@ -45,7 +59,7 @@ class HealthRecordPage extends StatelessWidget {
               icon: Icons.medical_services,
               title: 'ประวัติการรักษา',
               subtitle: 'บันทึกและดูประวัติการรักษาทั้งหมด',
-              routeName: '/treatment',
+              routeName: '/history',
             ),
             const SizedBox(height: 16),
 
@@ -55,7 +69,7 @@ class HealthRecordPage extends StatelessWidget {
               icon: Icons.calendar_today,
               title: 'การนัดหมาย',
               subtitle: 'ดูและบันทึกการนัดหมายกับแพทย์',
-              routeName: '/appointment',
+              routeName: '/date',
             ),
             const SizedBox(height: 16),
 
@@ -65,7 +79,7 @@ class HealthRecordPage extends StatelessWidget {
               icon: Icons.medication,
               title: 'การทานยา',
               subtitle: 'บันทึกประวัติการรับประทานยา',
-              routeName: '/medication',
+              routeName: '/medicine',
             ),
             const SizedBox(height: 16),
 
@@ -75,7 +89,7 @@ class HealthRecordPage extends StatelessWidget {
               icon: Icons.monitor_heart,
               title: 'ความดันและหัวใจ',
               subtitle: 'บันทึกค่าความดันและอัตราการเต้นหัวใจ',
-              routeName: '/bloodpressure',
+              routeName: '/pressure',
             ),
           ],
         ),
@@ -147,63 +161,6 @@ class HealthRecordPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-// หน้าตัวอย่าง (หน้าจริงควรพัฒนาตามความต้องการ)
-class TreatmentHistoryPage extends StatelessWidget {
-  const TreatmentHistoryPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ประวัติการรักษา'),
-      ),
-      body: const Center(child: Text('หน้าประวัติการรักษา')),
-    );
-  }
-}
-
-class AppointmentPage extends StatelessWidget {
-  const AppointmentPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('การนัดหมาย'),
-      ),
-      body: const Center(child: Text('หน้าการนัดหมาย')),
-    );
-  }
-}
-
-class MedicationPage extends StatelessWidget {
-  const MedicationPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('การทานยา'),
-      ),
-      body: const Center(child: Text('หน้าการทานยา')),
-    );
-  }
-}
-
-class BloodPressurePage extends StatelessWidget {
-  const BloodPressurePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('ความดันและหัวใจ'),
-      ),
-      body: const Center(child: Text('หน้าความดันและหัวใจ')),
     );
   }
 }

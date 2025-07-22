@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:heartcare_plus/main.dart';
+import 'package:heartcare_plus/profile.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -6,99 +8,93 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('การตั้งค่าต่างๆ'),
-        backgroundColor: Colors.red[700],
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
+      appBar: AppBar(title: const Text("การตั้งค่าต่างๆ")),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // ส่วนข้อมูลส่วนตัว
-          const Text(
-            'ข้อมูลส่วนตัว',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 10),
-
-          Card(
-            elevation: 3,
-            child: Column(
-              children: [
-                // การแจ้งเตือน
-                ListTile(
-                  leading: const Icon(Icons.notifications),
-                  title: const Text('การแจ้งเตือน'),
-                  trailing: Switch(
-                    value: true,
-                    onChanged: (value) {
-                      // Handle notification toggle
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
           const SizedBox(height: 20),
 
-          // ส่วนล่าง
-          Card(
-            elevation: 3,
-            child: Column(
-              children: [
-                // ปุ่มออกจากระบบ
-                ListTile(
-                  leading: const Icon(Icons.exit_to_app, color: Colors.red),
-                  title: const Text(
-                    'ออกจากระบบ',
-                    style: TextStyle(color: Colors.red),
+          // ปุ่มโปรไฟล์
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                border: Border.all(color: Colors.grey.shade300),
+              ),
+              child: InkWell(
+                borderRadius: BorderRadius.circular(30),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PatientProfilePage()),
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.person),
+                      SizedBox(width: 12),
+                      Text(
+                        'แก้ไขโปรไฟล์',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
-                  onTap: () {
-                    _showLogoutConfirmation(context);
-                  },
                 ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 20),
-
-          // ติดต่อเรา
-          const Center(
-            child: Text(
-              'หากพบปัญหาโปรดติดต่อเรา',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 14,
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
 
-  void _showLogoutConfirmation(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('ออกจากระบบ'),
-        content: const Text('คุณแน่ใจว่าต้องการออกจากระบบหรือไม่?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('ยกเลิก'),
+          const SizedBox(height: 20),
+
+          // สวิตช์การแจ้งเตือน
+          SwitchListTile(
+            value: true,
+            onChanged: (val) {},
+            title: const Text("การแจ้งเตือน"),
+            secondary: const Icon(Icons.notifications),
           ),
-          TextButton(
-            onPressed: () {
-              // Handle logout logic
-              Navigator.pop(context);
-              Navigator.pop(context); // กลับไปหน้าหลัก
-            },
-            child: const Text(
-              'ออกจากระบบ',
-              style: TextStyle(color: Colors.red),
+
+          const SizedBox(height: 20),
+
+          // ปุ่มออกจากระบบ
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              height: 50,
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.logout, color: Colors.red),
+                label: const Text("ออกจากระบบ",
+                    style: TextStyle(color: Colors.red)),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => HeartCarePlusApp()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.red),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+              ),
+            ),
+          ),
+
+          const Spacer(),
+
+          const Center(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text("หากพบปัญหาโปรดติดต่อเรา"),
             ),
           ),
         ],

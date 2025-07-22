@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bmi_cal.dart';
 import 'forget_pass.dart';
 import 'home.dart';
-import 'setting.dart';
 
 class Loginpage extends StatefulWidget {
   @override
@@ -108,8 +106,7 @@ class _LoginPageState extends State<Loginpage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => BMICalculatorPage()),
+                    MaterialPageRoute(builder: (context) => HomePage()),
                   );
                   // Logic การสมัคร
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
