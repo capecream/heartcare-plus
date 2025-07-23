@@ -29,12 +29,12 @@ class MedicineScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 16),
+          const SizedBox(height: 30),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 2),
             child: Container(
               decoration: BoxDecoration(
-                color: const Color(0xFFD6D9F3),
+                color: const Color.fromARGB(255, 186, 192, 243),
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: const [
                   BoxShadow(
@@ -63,21 +63,21 @@ class MedicineScreen extends StatelessWidget {
                       children: [
                         Text(
                           'ชื่อยา: พาราเซตามอล',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 20),
                         ),
                         SizedBox(height: 4),
                         Text(
                           'เวลา: 10:00 น.',
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                              fontSize: 26, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
                   ),
                   const Column(
                     children: [
-                      Icon(Icons.toggle_off,
-                          color: Colors.red, size: 32), // ปุ่มเปิด/ปิด
+                      Icon(Icons.toggle_on,
+                          color: Colors.red, size: 52), // ปุ่มเปิด/ปิด
                       SizedBox(height: 8),
                       Icon(Icons.edit, color: Colors.black87), // ปุ่มแก้ไข
                     ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login.dart';
-import 'registor.dart';
+import 'package:heartcare_plus/login/login.dart';
+import 'package:heartcare_plus/login/registor.dart';
 
 void main() => runApp(const HeartCarePlusApp());
 

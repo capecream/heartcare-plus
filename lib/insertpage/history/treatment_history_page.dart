@@ -75,12 +75,12 @@ class _TreatmentHistoryPage extends State<TreatmentHistoryPage> {
                   Text(
                     item['date'] ?? '',
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                        fontWeight: FontWeight.bold, fontSize: 24),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     item['detail'] ?? '',
-                    style: const TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ],
               ),

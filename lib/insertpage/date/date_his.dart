@@ -38,7 +38,7 @@ class _DateHis extends State<DateHistory> {
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(color: Colors.black),
-        title: const Text('บันทึกการนัดหมาย',
+        title: const Text('ประวัติการรักษา',
             style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -75,12 +75,12 @@ class _DateHis extends State<DateHistory> {
                   Text(
                     item['date'] ?? '',
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                        fontWeight: FontWeight.bold, fontSize: 24),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     item['detail'] ?? '',
-                    style: const TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 20),
                   ),
                 ],
               ),
