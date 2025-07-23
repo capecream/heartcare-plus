@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AddTreatmentPage extends StatefulWidget {
-  const AddTreatmentPage({Key? key}) : super(key: key);
+  const AddTreatmentPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AddTreatmentPageState createState() => _AddTreatmentPageState();
 }
 
@@ -26,8 +27,6 @@ class _AddTreatmentPageState extends State<AddTreatmentPage> {
       );
       return;
     }
-
-    // TODO: บันทึกข้อมูลลงฐานข้อมูลหรือลิสต์
 
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('บันทึกข้อมูลเรียบร้อย')),

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'login.dart';
 import 'registor.dart';
 
-void main() => runApp(HeartCarePlusApp());
+void main() => runApp(const HeartCarePlusApp());
 
 class HeartCarePlusApp extends StatelessWidget {
+  const HeartCarePlusApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'HeartCare Plus',
       home: LoginPage(),
       debugShowCheckedModeBanner: false,
@@ -16,6 +18,8 @@ class HeartCarePlusApp extends StatelessWidget {
 }
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +32,12 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // โลโก้หัวใจ
-                Icon(Icons.favorite, color: Colors.red, size: 60),
+                const Icon(Icons.favorite, color: Colors.red, size: 60),
 
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // ชื่อแอป
-                Text(
+                const Text(
                   'HeartCare\nPlus',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -44,7 +48,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // ภาพหมอ (แทนด้วย Icon หรือภาพ Asset)
                 Image.asset(
@@ -52,19 +56,19 @@ class LoginPage extends StatelessWidget {
                   height: 160,
                 ),
 
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
-                Text(
+                const Text(
                   'เข้าสู่ระบบ',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   'กรุณาลงทะเบียนใหม่หรือล็อกอินเข้าสู่ระบบก่อน',
                   style: TextStyle(fontSize: 14, color: Colors.grey[700]),
                 ),
 
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 // ปุ่มลงทะเบียน
                 ElevatedButton(
@@ -76,44 +80,46 @@ class LoginPage extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blueGrey,
-                    minimumSize: Size(double.infinity, 48),
+                    minimumSize: const Size(double.infinity, 48),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: Text('ลงทะเบียน', style: TextStyle(fontSize: 16)),
+                  child:
+                      const Text('ลงทะเบียน', style: TextStyle(fontSize: 16)),
                 ),
 
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
 
                 Text('หรือ', style: TextStyle(color: Colors.grey[600])),
 
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
 
                 // ปุ่มเข้าสู่ระบบ
                 OutlinedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Loginpage()),
+                      MaterialPageRoute(
+                          builder: (context) => const Loginpage()),
                     );
                   },
                   style: OutlinedButton.styleFrom(
-                    minimumSize: Size(double.infinity, 48),
-                    side: BorderSide(color: Colors.grey),
+                    minimumSize: const Size(double.infinity, 48),
+                    side: const BorderSide(color: Colors.grey),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: Text('เข้าสู่ระบบ',
+                  child: const Text('เข้าสู่ระบบ',
                       style: TextStyle(fontSize: 16, color: Colors.blueGrey)),
                 ),
 
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 GestureDetector(
                   onTap: () {
                     // นำทางไปหน้าติดต่อเรา
                   },
-                  child: Text(
+                  child: const Text(
                     'หากพบปัญหาในการเข้าสู่ระบบโปรด ติดต่อเรา',
                     style: TextStyle(
                       decoration: TextDecoration.underline,

@@ -1,7 +1,8 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
 class ArticleDetailPage extends StatelessWidget {
-  const ArticleDetailPage({Key? key}) : super(key: key);
+  const ArticleDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +56,8 @@ class ArticleDetailPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Column(
-              children: const [
+            const Column(
+              children: [
                 Icon(Icons.diamond, size: 36, color: Colors.brown),
                 SizedBox(height: 4),
                 Text(

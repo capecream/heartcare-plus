@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'add_treatment_page.dart';
 
 class TreatmentHistoryPage extends StatefulWidget {
+  const TreatmentHistoryPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _TreatmentHistoryPage createState() => _TreatmentHistoryPage();
 }
 
@@ -30,22 +33,16 @@ class _TreatmentHistoryPage extends State<TreatmentHistoryPage> {
     },
   ];
 
-  void _addNewEntry() {
-    setState(() {
-      historyList.insert(
-          0, {'date': 'วันนี้', 'detail': 'ข้อมูลตัวอย่างที่เพิ่งเพิ่ม'});
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
-        title: Text('ประวัติการรักษา', style: TextStyle(color: Colors.black)),
+        leading: const BackButton(color: Colors.black),
+        title: const Text('ประวัติการรักษา',
+            style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         elevation: 0,
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.favorite, color: Colors.red),
@@ -59,12 +56,12 @@ class _TreatmentHistoryPage extends State<TreatmentHistoryPage> {
           itemBuilder: (context, index) {
             final item = historyList[index];
             return Container(
-              margin: EdgeInsets.only(bottom: 12),
-              padding: EdgeInsets.all(12),
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Color(0xFFB9CCF5),
+                color: const Color(0xFFB9CCF5),
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 4,
@@ -77,12 +74,13 @@ class _TreatmentHistoryPage extends State<TreatmentHistoryPage> {
                 children: [
                   Text(
                     item['date'] ?? '',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     item['detail'] ?? '',
-                    style: TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ],
               ),
@@ -90,17 +88,17 @@ class _TreatmentHistoryPage extends State<TreatmentHistoryPage> {
           },
         ),
       ),
-      backgroundColor: Color(0xFFF5F5F9),
+      backgroundColor: const Color(0xFFF5F5F9),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddTreatmentPage()),
+            MaterialPageRoute(builder: (context) => const AddTreatmentPage()),
           );
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.redAccent,
         tooltip: 'เพิ่มข้อมูลใหม่',
+        child: const Icon(Icons.add),
       ),
     );
   }

@@ -1,8 +1,9 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:heartcare_plus/ArticlePage/ArtiicleDetail.dart';
 
 class ArticlePage extends StatelessWidget {
-  const ArticlePage({Key? key}) : super(key: key);
+  const ArticlePage({super.key});
 
   @override
   Widget build(BuildContext context) {

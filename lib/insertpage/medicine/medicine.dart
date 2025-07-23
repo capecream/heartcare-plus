@@ -3,21 +3,23 @@ import 'package:heartcare_plus/insert.dart';
 import 'package:heartcare_plus/insertpage/medicine/insert.dart';
 
 class MedicineScreen extends StatelessWidget {
+  const MedicineScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HealthApp()),
+              MaterialPageRoute(builder: (context) => const HealthApp()),
             );
           },
         ),
-        title: Text('การทานยา'),
-        actions: [
+        title: const Text('การทานยา'),
+        actions: const [
           Icon(Icons.favorite_border, color: Colors.red),
           SizedBox(width: 16),
         ],
@@ -27,14 +29,14 @@ class MedicineScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xFFD6D9F3),
+                color: const Color(0xFFD6D9F3),
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black12,
                     blurRadius: 6,
@@ -42,7 +44,7 @@ class MedicineScreen extends StatelessWidget {
                   )
                 ],
               ),
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               child: Row(
                 children: [
                   ClipRRect(
@@ -54,8 +56,8 @@ class MedicineScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  SizedBox(width: 12),
-                  Expanded(
+                  const SizedBox(width: 12),
+                  const Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -72,7 +74,7 @@ class MedicineScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Column(
+                  const Column(
                     children: [
                       Icon(Icons.toggle_off,
                           color: Colors.red, size: 32), // ปุ่มเปิด/ปิด
@@ -84,7 +86,7 @@ class MedicineScreen extends StatelessWidget {
               ),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: ElevatedButton(
@@ -94,14 +96,14 @@ class MedicineScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => AddMedicineScreen()),
                 );
               },
-              child: Text('เพิ่มข้อมูล'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 255, 132, 132),
-                minimumSize: Size(double.infinity, 50),
+                minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
+              child: const Text('เพิ่มข้อมูล'),
             ),
           )
         ],

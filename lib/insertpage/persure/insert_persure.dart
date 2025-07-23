@@ -65,7 +65,7 @@ class BloodPressureForm extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Center(
+            const Center(
               child: Icon(Icons.favorite, size: 100, color: Colors.red),
             ),
             const SizedBox(height: 24),

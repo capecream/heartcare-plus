@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:heartcare_plus/insertpage/date/date_add.dart';
 
 class DateHistory extends StatefulWidget {
+  const DateHistory({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _DateHis createState() => _DateHis();
 }
 
@@ -30,22 +33,16 @@ class _DateHis extends State<DateHistory> {
     },
   ];
 
-  void _addNewEntry() {
-    setState(() {
-      historyList.insert(
-          0, {'date': 'วันนี้', 'detail': 'ข้อมูลตัวอย่างที่เพิ่งเพิ่ม'});
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
-        title: Text('บันทึกการนัดหมาย', style: TextStyle(color: Colors.black)),
+        leading: const BackButton(color: Colors.black),
+        title: const Text('บันทึกการนัดหมาย',
+            style: TextStyle(color: Colors.black)),
         backgroundColor: Colors.white,
         elevation: 0,
-        actions: [
+        actions: const [
           Padding(
             padding: EdgeInsets.only(right: 16),
             child: Icon(Icons.favorite, color: Colors.red),
@@ -59,12 +56,12 @@ class _DateHis extends State<DateHistory> {
           itemBuilder: (context, index) {
             final item = historyList[index];
             return Container(
-              margin: EdgeInsets.only(bottom: 12),
-              padding: EdgeInsets.all(12),
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Color(0xFFB9CCF5),
+                color: const Color(0xFFB9CCF5),
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     color: Colors.black26,
                     blurRadius: 4,
@@ -77,12 +74,13 @@ class _DateHis extends State<DateHistory> {
                 children: [
                   Text(
                     item['date'] ?? '',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
                     item['detail'] ?? '',
-                    style: TextStyle(fontSize: 14),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ],
               ),
@@ -90,17 +88,17 @@ class _DateHis extends State<DateHistory> {
           },
         ),
       ),
-      backgroundColor: Color(0xFFF5F5F9),
+      backgroundColor: const Color(0xFFF5F5F9),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DateAdds()),
+            MaterialPageRoute(builder: (context) => const DateAdds()),
           );
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.redAccent,
         tooltip: 'เพิ่มข้อมูลใหม่',
+        child: const Icon(Icons.add),
       ),
     );
   }
