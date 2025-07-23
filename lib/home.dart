@@ -18,16 +18,13 @@ class _HomePageState extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
 
-  bool _dateInitialized = false;
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
     initializeDateFormatting('th', null).then((_) {
-      setState(() {
-        _dateInitialized = true;
-      });
+      setState(() {});
     });
   }
 
@@ -35,21 +32,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final appointmentDate = DateTime(2025, 5, 15, 15, 30);
 
-    final List<Widget> _pages = [
+    final List<Widget> pages = [
       SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            const Row(
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage:
-                      AssetImage('assets/Doctor.png'), // หรือ NetworkImage(...)
+                  backgroundImage: AssetImage('assets/Doctor.png'),
                 ),
-                const SizedBox(width: 12),
-                const Text(
+                SizedBox(width: 12),
+                Text(
                   'สวัสดี นายสมชาย เบื้องไทย',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
@@ -88,7 +84,7 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 20),
 
-            Text(
+            const Text(
               'ปฏิทิน',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
@@ -246,7 +242,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: _pages[_selectedIndex],
+      body: pages[_selectedIndex],
       bottomNavigationBar: column,
     );
   }

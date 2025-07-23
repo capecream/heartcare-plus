@@ -5,7 +5,6 @@ class Registorpage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  @override
   void dispose() {
     nameController.dispose();
     emailController.dispose();

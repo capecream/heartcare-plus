@@ -3,15 +3,16 @@ import 'forget_pass.dart';
 import 'home.dart';
 
 class Loginpage extends StatefulWidget {
+  const Loginpage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<Loginpage> {
-  final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -20,30 +21,14 @@ class _LoginPageState extends State<Loginpage> {
     super.dispose();
   }
 
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        _isLoading = true;
-      });
-
-      // Simulate login process
-      Future.delayed(Duration(seconds: 2), () {
-        setState(() {
-          _isLoading = false;
-        });
-        Navigator.pop(context); // กลับไปหน้าก่อนหน้า
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('เข้าสู่ระบบ'),
+        title: const Text('เข้าสู่ระบบ'),
         backgroundColor: Colors.redAccent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -52,17 +37,17 @@ class _LoginPageState extends State<Loginpage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Icon(Icons.favorite, color: Colors.red, size: 60),
-              SizedBox(height: 12),
-              Text(
+              const Icon(Icons.favorite, color: Colors.red, size: 60),
+              const SizedBox(height: 12),
+              const Text(
                 'HeartCare Plus',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               // Email Field
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'อีเมล',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.email),
@@ -78,12 +63,12 @@ class _LoginPageState extends State<Loginpage> {
                   return null;
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               // Password Field
               TextFormField(
                 controller: _passwordController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'รหัสผ่าน',
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.lock),
@@ -99,31 +84,32 @@ class _LoginPageState extends State<Loginpage> {
                   return null;
                 },
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
               // Login Button
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                   // Logic การสมัคร
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text('สมัครสำเร็จ (ตัวอย่าง)'),
                   ));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
-                  minimumSize: Size(double.infinity, 50),
+                  minimumSize: const Size(double.infinity, 50),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                child: Text('เข้าสู่ระบบ', style: TextStyle(fontSize: 16)),
+                child:
+                    const Text('เข้าสู่ระบบ', style: TextStyle(fontSize: 16)),
               ),
 
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
 
               // Forgot Password Link
               TextButton(
@@ -131,10 +117,10 @@ class _LoginPageState extends State<Loginpage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ForgotPasswordPage()),
+                        builder: (context) => const ForgotPasswordPage()),
                   );
                 },
-                child: Text('ลืมรหัสผ่าน?'),
+                child: const Text('ลืมรหัสผ่าน?'),
               ),
             ],
           ),

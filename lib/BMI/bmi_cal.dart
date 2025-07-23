@@ -54,14 +54,14 @@ class _BMICalculatorPageState extends State<BMICalculatorPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // คำอธิบาย BMI
-            Card(
+            const Card(
               elevation: 3,
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'ค่า BMI คือค่าดัชนีที่ใช้ชี้วัดความสมบูรณ์ของน้ำหนักตัว (กิโลกรัม) และส่วนสูง (เซนติเมตร) ซึ่งสามารถระบุได้ว่ารูปร่างของคนคนนั้นอยู่ในระดับใด ตั้งแต่ผอมไปจนถึงอ้วนเกินไป',
                       style: TextStyle(fontSize: 16),
                     ),
