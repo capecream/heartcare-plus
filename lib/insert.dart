@@ -21,10 +21,10 @@ class HealthApp extends StatelessWidget {
       ),
       home: const HealthRecordPage(),
       routes: {
-        '/date': (context) => DateHistory(),
-        '/history': (context) => TreatmentHistoryPage(),
-        '/medicine': (context) => MedicineScreen(),
-        '/pressure': (context) => Persure(),
+        '/date': (context) => const DateHistory(),
+        '/history': (context) => const TreatmentHistoryPage(),
+        '/medicine': (context) => const MedicineScreen(),
+        '/pressure': (context) => const Persure(),
       },
     );
   }
