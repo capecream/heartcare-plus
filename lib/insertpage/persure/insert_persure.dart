@@ -5,10 +5,10 @@ class BloodPressureForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dateController = TextEditingController(text: 'วว/ดด/ปปปป');
-    final sysController = TextEditingController(text: '0');
-    final diaController = TextEditingController(text: '0');
-    final pulController = TextEditingController(text: '0');
+    final dateController = TextEditingController(text: '');
+    final sysController = TextEditingController(text: '');
+    final diaController = TextEditingController(text: '');
+    final pulController = TextEditingController(text: '');
 
     return Scaffold(
       appBar: AppBar(

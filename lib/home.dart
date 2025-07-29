@@ -6,6 +6,7 @@ import 'package:heartcare_plus/setting/setting.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,12 +46,22 @@ class _HomePageState extends State<HomePage> {
                   backgroundImage: AssetImage('assets/Doctor.png'),
                 ),
                 SizedBox(width: 12),
-                Text(
-                  'สวัสดี นายสมชาย เบื้องไทย',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                Expanded(
+                  child: AutoSizeText(
+                    'สวัสดี นายสมชาย เมืองไทย',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    minFontSize: 12,
+                    maxFontSize: 24,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),
+
             const SizedBox(height: 20),
             const SizedBox(height: 20),
 
@@ -105,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                   _focusedDay = focusedDay;
                 });
               },
-              calendarStyle: CalendarStyle(
+              calendarStyle: const CalendarStyle(
                 todayDecoration: BoxDecoration(
                   color: Colors.orange,
                   shape: BoxShape.circle,
@@ -115,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                   shape: BoxShape.circle,
                 ),
               ),
-              headerStyle: HeaderStyle(
+              headerStyle: const HeaderStyle(
                 formatButtonVisible: false,
                 titleCentered: true,
               ),
